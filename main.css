@@ -2,3 +2,26 @@
     border-radius:33%;
     position:absolute;
 }
+
+
+.resultImage{
+    position:absolute;
+    top:30%;
+    left:15%;
+    border:solid;
+    border-color: black;
+    border-width: 4px;
+    visibility: hidden;
+}
+
+.customButton{
+    text-align: center;
+    background-color: #2b3f7c;
+    border: solid;
+    color:white;
+    border-width: 3px;
+    border-color: #000000;
+    border-radius: 7px;
+
+
+}
