@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>Image Mapping</title>
+    </head>
+    <link href="main.css" rel="stylesheet">
+    <body>
+
+    <input type="file"  id="fileUpload" value="chose picture">
+    <div id="pixelColor">Color</div>
+    <div id="colorMap" style="position:absolute;top:10%;left:5%;border:solid;border-color: brown;border-width: 4px;"></div>
+
+    <script type="text/javascript" src="blocSplitter.js"></script>
+    <script type="text/javascript" src="mainExtractor.js"></script>
+    <script type="text/javascript" src="colorExtractor.js"></script>
+    <script type="text/javascript">
+
+
+
+        var x,y;
+        resultCanvas.addEventListener("mousemove",function (e) {
+            x=parseInt(e.pageX - resultCanvas.offsetLeft);
+            y=parseInt(e.pageY - resultCanvas.offsetTop);
+            //var pixelData = reanvas.getContext('2d').getImageData(x, y, 1, 1).data;
+
+        },false);
+
+    </script>
+    </body>
+</html>
