@@ -26,20 +26,25 @@ function readImage() {
                 //Calling displayers
 
 
-                var proportion=0.9; //window proportion
+                var proportion=0.5; //window proportion
 
-                resultCanvas.style.width=proportion*parseFloat(screen.width)+"px";
-                resultCanvas.style.height=parseFloat(resultCanvas.style.width)*(parseFloat(img.height)/parseFloat(img.width))+"px";
+                //resultCanvas.style.width=Math.max(parseFloat(img.width),parseFloat(img.height))+"px";
+
+                resultCanvas.style.width=(proportion*parseFloat(screen.width))+"px";
+                resultCanvas.style.height=resultCanvas.style.width;
+                var proportion=parseFloat(img.width)/parseFloat(resultCanvas.style.width);
+                //resultCanvas.style.height=resultCanvas.style.width;
+                //resultCanvas.style.height=parseFloat(resultCanvas.style.width)*(parseFloat(img.height)/parseFloat(img.width))+"px";
 
 
                 var newDiv=document.createElement('div');
                 newDiv.className='bloc';
-                newDiv.style.width=Math.min(parseFloat(resultCanvas.style.width),parseFloat(resultCanvas.style.height))+"px";
-                newDiv.style.height=newDiv.style.width;
+                newDiv.style.width=Math.max(parseFloat(resultCanvas.style.width),parseFloat(resultCanvas.style.height))+"px";
+                newDiv.style.height=parseFloat(newDiv.style.width)+"px";
                 newDiv.style.backgroundColor="rgb(" + pix.R + "," + pix.G + "," + pix.B + ")";
                 setMiddle(resultCanvas,newDiv,0,resultCanvas.style.width,0,resultCanvas.style.height);
                 resultCanvas.appendChild(newDiv);
-                newDiv.addEventListener("mousemove",function(e){split(imageCanvas,e);},false);
+                newDiv.addEventListener("mousemove",function(e){split(imageCanvas,proportion,e);},false);
 
             });
             img.src = e.target.result;
