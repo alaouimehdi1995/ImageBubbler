@@ -40,7 +40,6 @@ function getAverageColor(imageContext,widthStart,widthFinish,heightStart,heightF
 
 function split(imageCanvas,proportion,e){
     var imageContext=imageCanvas.getContext("2d");
-    console.log("split called");
     var element=e.target;
     var parent=element.parentNode;
     parent.removeChild(element);
@@ -124,10 +123,19 @@ function readImage() {
 
                 var proportion=0.7; //window proportion
 
-                resultCanvas.style.width=(proportion*parseFloat(screen.width))+"px";
-                resultCanvas.style.height=resultCanvas.style.width;
-                resultCanvas.style.visibility="visible";
-                proportion=parseFloat(img.width)/parseFloat(resultCanvas.style.width);
+                if(parseFloat(img.width)>parseFloat(img.height)){
+                    resultCanvas.style.width=(proportion*parseFloat(screen.width))+"px";
+                    resultCanvas.style.height=resultCanvas.style.width;
+                    resultCanvas.style.visibility="visible";
+                    proportion=parseFloat(img.width)/parseFloat(resultCanvas.style.width);
+                }
+                else{
+                    resultCanvas.style.height=(proportion*parseFloat(screen.height))+"px";
+                    resultCanvas.style.width=resultCanvas.style.height
+                    resultCanvas.style.visibility="visible";
+                    proportion=parseFloat(img.height)/parseFloat(resultCanvas.style.height);
+                }
+
 
                 var newDiv=document.createElement('div');
                 newDiv.className='bloc';
